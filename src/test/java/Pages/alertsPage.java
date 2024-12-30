@@ -1,6 +1,5 @@
 package Pages;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +34,14 @@ public class alertsPage {
     @FindBy(id = "demo")
     WebElement resultTextOnceClicksOkayOrCancel;
 
+    //Elements with Alert with Textbox elements
+    @FindBy(xpath = "//a[contains(text(),'Alert with Textbox')]")
+    WebElement alertWithTextBoxButton;
+    @FindBy(xpath = "//button[contains(text(),'click the button to demonstrate the prompt box')]")
+    WebElement promptBoxButton;
+    @FindBy(id="demo1")
+    WebElement alertTextBoxResult;
+
 
     //Alert with Ok Scenario code
     public void title() {
@@ -49,7 +56,6 @@ public class alertsPage {
             alertWithOkayButton.click();
         }
     }
-
     public void setClickToDisplayAlertPopupButton() {
         String textOfTheDisplayAlertPopupButton = clickToDisplayAlertPopup.getText();
         if (textOfTheDisplayAlertPopupButton.contains(("click the button to display"))) {
@@ -117,5 +123,40 @@ public class alertsPage {
         String resultFromOkayAndCancelAlert2 = resultTextOnceClicksOkayOrCancel.getText();
         System.out.println("User Clicked : '" + resultFromOkayAndCancelAlert2 + "' from the Press a button Alert");
 
+    }
+
+    //Alert With Text box
+
+    public void clickAlertWithTextBoxButton(){
+        alertWithTextBoxButton.click();
+    }
+    public void promptTextButtonVisible(){
+        boolean verifyPromptButton = promptBoxButton.isDisplayed();
+        if(verifyPromptButton){
+            System.out.println("Prompt text box button name "+promptBoxButton.getText());
+        }
+        else{
+            System.out.println("Prompt text box button not visible");
+        }
+    }
+    public void clickPromptTextBoxButton(){
+        promptBoxButton.click();
+    }
+    public void getTextOnAlertTextBox(){
+        Alert textOnTextBox = driver.switchTo().alert();
+        System.out.println("Alert name : "+textOnTextBox.getText());
+    }
+    public void enterTheTextIntoAlertTextbox(String textEnteringIntoAlert){
+        Alert sendName = driver.switchTo().alert();
+        sendName.sendKeys(textEnteringIntoAlert);
+    }
+    public void acceptTheAlert(){
+        driver.switchTo().alert().accept();
+       String resultMessage = alertTextBoxResult.getText();
+        System.out.println("User Entered : "+resultMessage+" text on Alert text box");
+
+    }
+    public void closeTheAlert(){
+        driver.switchTo().alert().dismiss();
     }
 }

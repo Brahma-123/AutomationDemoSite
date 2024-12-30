@@ -93,6 +93,35 @@ public class switchToPageAlretsWindowsAndIframes {
     public void user_clicks_cancel_you_pressed_cancel_text_visible_under_confirm_text_box_button() {
         alertsPageAuto.clickCancelInOkayAndCancelAlertPopup();
     }
+    //Alert with Text box
 
-
+    @When("user clicks alert with text box button")
+    public void user_clicks_alert_with_text_box_button() {
+       alertsPageAuto.clickAlertWithTextBoxButton();
+    }
+    @Then("prompt box button visible")
+    public void prompt_box_button_visible() {
+       alertsPageAuto.promptTextButtonVisible();
+    }
+    @When("Clicks Prompt box button")
+    public void clicks_prompt_box_button() {
+        alertsPageAuto.clickPromptTextBoxButton();
+    }
+    @Then("Alert with Text box should be visible")
+    public void alert_with_text_box_should_be_visible() {
+        alertsPageAuto.getTextOnAlertTextBox();
+    }
+    @When("clear the text from text box and enter {string}")
+    public void clear_the_text_from_text_box_and_enter(String textIntoAlertTextbox) {
+       alertsPageAuto.enterTheTextIntoAlertTextbox(textIntoAlertTextbox);
+    }
+    @Then("accept the alert")
+    public void accept_the_alert() {
+        alertsPageAuto.acceptTheAlert();
+    }
+    //Closing the Alert after entering name
+    @Then("click cancel button on textbox alert popup")
+    public void click_cancel_button_on_textbox_alert_popup() {
+       alertsPageAuto.closeTheAlert();
+    }
 }

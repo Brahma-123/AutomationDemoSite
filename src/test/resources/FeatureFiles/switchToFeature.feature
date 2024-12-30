@@ -33,4 +33,22 @@ Feature: SwitchTo feature contains Alerts,Iframes and Windows
     Then Alert popup will be visible with Okay and Cancel button
     When user clicks Cancel you pressed cancel Text visible under Confirm text box button
 
+  Scenario: Enter name and accept the alert
+    Given user in Alerts page
+    When user clicks alert with text box button
+    Then prompt box button visible
+    When Clicks Prompt box button
+    Then Alert with Text box should be visible
+    When clear the text from text box and enter "This is Brahma"
+    Then accept the alert
+
+  Scenario: Entering the name then clicking cancel button on Prompt Alert
+    Given user in Alerts page
+    When user clicks alert with text box button
+    Then prompt box button visible
+    When Clicks Prompt box button
+    Then Alert with Text box should be visible
+    When clear the text from text box and enter "This is Brahma"
+    Then click cancel button on textbox alert popup
+
 
