@@ -25,7 +25,7 @@ public class Hooks {
     @After
     public void closeBrowser(){
         if (driver!= null){
-            driver.close();
+            driver.quit();
         }
     }
 }
