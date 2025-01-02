@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-public class switchToPageAlretsWindowsAndIframes {
+public class switchToPageAlretsWindows {
     WebDriver driver = Hooks.getDriver();
     SwitchToPageAlerts switchToAlerts;
     alertsPage alertsPageAuto;
