@@ -18,7 +18,6 @@ public class RedirectToRegisterPage {
         driver.get("https://demo.automationtesting.in/Index.html");
         landingPage = new indexPage(driver);
         landingPage.checkIndexTile();
-
     }
     @When("user clicks Skip sign-in button")
     public void user_clicks_skip_sign_in_button() {

@@ -16,7 +16,7 @@ public class Hooks {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public static WebDriver getDriver(){
@@ -25,6 +25,7 @@ public class Hooks {
     @After
     public void closeBrowser(){
         if (driver!= null){
+
             driver.quit();
         }
     }
