@@ -3,6 +3,8 @@ package StepDefinationAutomationTesting;
 import Pages.Accordion_Widget;
 import Pages.AutoCompletePage;
 import Pages.DatePickerPage;
+import Pages.SliderPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,6 +17,7 @@ public class WidgetStepDefination {
     Accordion_Widget accordionWidget;
     AutoCompletePage autoComplete;
     DatePickerPage datePicker;
+    SliderPage slider;
 
 
     //Get Widget page options
@@ -138,4 +141,25 @@ public class WidgetStepDefination {
     public void get_the_selected_date_and_close_the_calendar_by_clicking_enter() {
        datePicker.closeTheCalendar();
     }
+
+    //Slider page glue code
+
+    @Given("user in slider page")
+    public void user_in_slider_page() {
+        slider = new SliderPage(driver);
+        slider.navigateToSliderPage();
+    }
+    @When("set the slider at fifty percentage")
+    public void set_the_slider_at_fifty_percentage() {
+       slider.moveToFiftyPercent();
+    }
+    @And("set the slider at ninety percentage")
+    public void set_the_slider_at_ninety_percentage() {
+        slider.moveToNinetyPercent();
+    }
+    @And("set the slider at five percentage")
+    public void set_the_slider_at_five_percentage() {
+      slider.moveToFivePercent();
+    }
+
 }

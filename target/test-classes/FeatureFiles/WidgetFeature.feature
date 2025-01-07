@@ -41,3 +41,11 @@ Feature: Widget page automation
     Then get the selected date and close the calendar by clicking enter
 
 
+    @RunThisScenario
+    Scenario: Automate Slider page
+      Given user in slider page
+      When set the silder at fifty percentage
+      And set the slider at ninety percentage
+      And set the slider at five percentage
+
+
