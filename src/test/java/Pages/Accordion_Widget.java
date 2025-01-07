@@ -1,4 +1,4 @@
-package StepDefinationAutomationTesting;
+package Pages;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -53,8 +53,6 @@ public class Accordion_Widget {
     WebElement crossBrowserTesting;
     @FindBy(xpath = "//div[@id='collapse4']/div")
     WebElement crossBrowserTestingText;
-
-
     public void mouseOverToWidgetDropdown() {
         Actions action = new Actions(driver);
         action.moveToElement(widgetsDropDown).perform();

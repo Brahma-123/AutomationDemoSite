@@ -25,3 +25,19 @@ Feature: Widget page automation
     When  enters "India" name into text box
     Then select country from list
     And Clear the country from search
+
+  Scenario: Automate Disable Date Picker
+    Given user in Date Picker page
+    When click disabled Date picker
+    Then Calendar should open
+    When Select Date,Month and Year
+    Then selected date month and year should be selected
+
+  Scenario: Automate enable date picker
+    Given user in Date Picker page
+    When click enable date picker
+    Then enable Calendar should open
+    When Send the date into Text box
+    Then get the selected date and close the calendar by clicking enter
+
+

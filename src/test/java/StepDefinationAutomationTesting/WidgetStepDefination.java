@@ -1,11 +1,11 @@
 package StepDefinationAutomationTesting;
 
+import Pages.Accordion_Widget;
 import Pages.AutoCompletePage;
-import io.cucumber.java.en.And;
+import Pages.DatePickerPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.messages.types.Hook;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -14,6 +14,7 @@ public class WidgetStepDefination {
     WebDriver driver = Hooks.getDriver();
     Accordion_Widget accordionWidget;
     AutoCompletePage autoComplete;
+    DatePickerPage datePicker;
 
 
     //Get Widget page options
@@ -95,4 +96,46 @@ public class WidgetStepDefination {
        autoComplete.clearTheCountry();
     }
 
+    //Disable Date Picker page glue code
+
+    @Given("user in Date Picker page")
+    public void user_in_date_picker_page() {
+        datePicker = new DatePickerPage(driver);
+        datePicker.navigateToDatePickerPage();
+    }
+    @When("click disabled Date picker")
+    public void click_disabled_date_picker() {
+       datePicker.clickDisabledDatePicker();
+    }
+    @Then("Calendar should open")
+    public void calendar_should_open() {
+       datePicker.calenderVerification();
+    }
+    @When("Select Date,Month and Year")
+    public void select_date_month_and_year() {
+       datePicker.selectTheDateOnDisabledDatePicker();
+    }
+    @Then("selected date month and year should be selected")
+    public void selected_date_month_and_year_should_be_selected() {
+        datePicker.getTheSelectedDate();
+    }
+
+    //Enable date picker glue code
+
+    @When("click enable date picker")
+    public void click_enable_date_picker() {
+        datePicker.selectEnabledDatePicker();
+    }
+    @Then("enable Calendar should open")
+    public void enable_calendar_should_open() {
+       datePicker.getTheCurrentMonth();
+    }
+    @When("Send the date into Text box")
+    public void send_the_date_into_text_box() {
+        datePicker.sendTheDOBDateMonthYear();
+    }
+    @Then("get the selected date and close the calendar by clicking enter")
+    public void get_the_selected_date_and_close_the_calendar_by_clicking_enter() {
+       datePicker.closeTheCalendar();
+    }
 }
