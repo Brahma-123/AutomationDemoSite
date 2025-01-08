@@ -33,6 +33,7 @@ Feature: Widget page automation
     When Select Date,Month and Year
     Then selected date month and year should be selected
 
+
   Scenario: Automate enable date picker
     Given user in Date Picker page
     When click enable date picker
@@ -41,10 +42,10 @@ Feature: Widget page automation
     Then get the selected date and close the calendar by clicking enter
 
 
-    Scenario: Automate Slider page
-      Given user in slider page
-      When set the slider at fifty percentage
-      And set the slider at ninety percentage
-      And set the slider at five percentage
+  Scenario: Automate Slider page
+    Given user in slider page
+    When set the slider at fifty percentage
+    And set the slider at ninety percentage
+    And set the slider at five percentage
 
 
