@@ -13,3 +13,11 @@ Feature: Interactions features automate
     And  drag and drop S Selenium and demosite symbol in second row
     And  drag and drop S Selenium and demosite symbol in third row
     Then verify the dragable element
+
+    @SmokeTest
+  Scenario: Dynamic page drag and drop automate
+    Given user navigate to dyanamic drag and drop page
+    When drag and drop dynamic selenium S and Demosite symbol in First row
+    And drag and drop dynamic selenium S and Demosite symbol in Second row
+    And  drag and drop dynamic selenium S and Demosite symbol in Third row
+    Then verify dynamic draggable element

@@ -47,5 +47,30 @@ public class InteractionsStepDefination {
         dragAndDrop.validateDraggedElements();
     }
 
+    //Dynamic drag and drop glue code
+
+    @Given("user navigate to dyanamic drag and drop page")
+    public void user_navigate_to_dyanamic_drag_and_drop_page() {
+        dragAndDrop.moveOverToInterActionsSection();
+        dragAndDrop.getTheInteractionsList();
+        dragAndDrop.getListOfDragAndDrops();
+        dragAndDrop.navigateToDynamicDragAndDropPage();
+    }
+    @When("drag and drop dynamic selenium S and Demosite symbol in First row")
+    public void drag_and_drop_dynamic_selenium_s_and_demosite_symbol_in_first_row() {
+      dragAndDrop.dynamicDragThreeImagesAndDropInFirstRow();
+    }
+    @When("drag and drop dynamic selenium S and Demosite symbol in Second row")
+    public void drag_and_drop_dynamic_selenium_s_and_demosite_symbol_in_second_row() {
+        dragAndDrop.dynamicDragThreeImagesAndDropInSecondRow();
+    }
+    @When("drag and drop dynamic selenium S and Demosite symbol in Third row")
+    public void drag_and_drop_dynamic_selenium_s_and_demosite_symbol_in_third_row() {
+        dragAndDrop.dynamicDragThreeImagesAndDropInThirdRow();
+    }
+    @Then("verify dynamic draggable element")
+    public void verify_dynamic_draggable_element() {
+       dragAndDrop.validateDynamicDraggedElements();
+    }
 
 }

@@ -24,13 +24,13 @@ public class DragAndDropPage {
     @FindBy(xpath = "//a[contains(text(),'Interactions')]")
     WebElement interactionsSection;
 
-    // Redirect to Static drag and drop page
+    // Drag and drop elements
     @FindBy(xpath = "//a[contains(text(),'Drag and Drop')]")
     WebElement dragAndDropOption;
-
     @FindBy(xpath = "//a[contains(text(),'Static')]")
     WebElement staticDragAndDrop;
-
+    @FindBy(xpath = "//a[contains(text(),'Dynamic')]")
+    WebElement dynamicDragAndDrop;
     @FindBy(id = "angular")
     WebElement angularImage;
     @FindBy(id = "mongo")
@@ -40,7 +40,6 @@ public class DragAndDropPage {
     //Drop area
     @FindBy(id = "droparea")
     WebElement dropAreaElement;
-
 
 
     public void moveOverToInterActionsSection(){
@@ -118,5 +117,66 @@ public class DragAndDropPage {
         }
     }
 
+    // Dynamic Drag and drop methods
+    public void navigateToDynamicDragAndDropPage(){
+        Actions dynamicDrag = new Actions(driver);
+        dynamicDrag.moveToElement(dynamicDragAndDrop).click().perform();
+    }
+    public void dynamicDragThreeImagesAndDropInFirstRow(){
+        Actions moveImagesToFirstRow = new Actions(driver);
+        moveImagesToFirstRow.clickAndHold(angularImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToFirstRow.clickAndHold(automationSiteImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToFirstRow.clickAndHold(seleniumImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
 
+    }
+    public void dynamicDragThreeImagesAndDropInSecondRow(){
+        Actions moveImagesToSecondRow = new Actions(driver);
+        moveImagesToSecondRow.clickAndHold(angularImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToSecondRow.clickAndHold(automationSiteImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToSecondRow.clickAndHold(seleniumImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+    }
+    public void dynamicDragThreeImagesAndDropInThirdRow(){
+        Actions moveImagesToThirdRow = new Actions(driver);
+        moveImagesToThirdRow.clickAndHold(angularImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToThirdRow.clickAndHold(automationSiteImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+        moveImagesToThirdRow.clickAndHold(seleniumImage)
+                .moveToElement(dropAreaElement)
+                .release()
+                .perform();
+    }
+    public void validateDynamicDraggedElements(){
+        TakesScreenshot dynamicDragAndDrop = (TakesScreenshot)driver;
+        File sourceDynamicDragAndDrop = dynamicDragAndDrop.getScreenshotAs(OutputType.FILE);
+        File destinyDynamicDragAndDrop = new File("target/Screenshots/DynamicDragAndDrop.png");
+        try {
+            FileUtils.copyFile(sourceDynamicDragAndDrop, destinyDynamicDragAndDrop);
+        } catch (IOException e) {
+            System.out.println("Elements not not dragged successfully : "+e);
+        }
+        System.out.println("All dynamic images have dropped into dropped area refer the Screen shot on Screenshots folder");
+    }
 }
