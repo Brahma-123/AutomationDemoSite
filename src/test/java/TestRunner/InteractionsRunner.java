@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/FeatureFiles/InteractionsFeature.feature",
         glue = "StepDefinationAutomationTesting",
         plugin = {"pretty", "html:target/Reports/interaction.html"},
-        tags = "@SmokeTest"
+        tags = "@smoke"
 )
 public class InteractionsRunner {
 }

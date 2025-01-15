@@ -155,7 +155,6 @@ public class WindowsPage {
                 driver.switchTo().window(selectChildMultiWindow);
                String childWindowTitle = driver.getTitle();
                 System.out.println("Child window title Name : "+childWindowTitle);
-
             }
         }
     }
